@@ -1,5 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { SharedModule } from '../shared';
 import { Index2Component } from './index2/index2.component';
@@ -13,7 +14,8 @@ const dashboardRouting: ModuleWithProviders = RouterModule.forChild([
 @NgModule({
     imports: [
         dashboardRouting,
-        SharedModule
+        SharedModule,
+        NgbModule
     ],
     exports: [],
     declarations: [

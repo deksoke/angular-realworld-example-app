@@ -25,6 +25,7 @@ import {
   MainSidebarComponent,
   ControlSidebarComponent
 } from './shared';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -46,7 +47,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     ProfileModule,
     rootRouting,
     SharedModule,
-    SettingsModule
+    SettingsModule,
+    NgbModule.forRoot()
   ],
   providers: [
     ApiService,
