@@ -9,7 +9,9 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        { "glob": "**/*", "input": "../node_modules/admin-lte/dist/", "output": "./assets/" },
+        { "glob": "**/*", "input": "../node_modules/admin-lte/bootstrap/", "output": "./assets/bootstrap" }
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,9 +21,17 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/admin-lte/bootstrap/css/bootstrap.min.css",
+        "../node_modules/admin-lte/dist/css/AdminLTE.min.css",
+        "../node_modules/admin-lte/dist/css/skins/_all-skins.min.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/jquery.min.js",
+        "../node_modules/admin-lte/dist/js/app.min.js",
+        "../node_modules/admin-lte/dist/js/demo.js",
+        "../node_modules/admin-lte/dist/js/pages/dashboard.js"                
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

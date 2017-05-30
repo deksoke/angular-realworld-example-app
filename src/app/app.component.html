@@ -1,5 +1,22 @@
-<layout-header></layout-header>
+<!--<layout-header></layout-header>
 
 <router-outlet></router-outlet>
 
-<layout-footer></layout-footer>
+<layout-footer></layout-footer>-->
+
+<div class="wrapper">
+
+  <app-main-header></app-main-header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <app-main-sidebar></app-main-sidebar>
+
+  <!-- Content Wrapper. Contains page content -->
+  <router-outlet></router-outlet>
+  <!-- /.content-wrapper -->
+
+  <app-main-footer></app-main-footer>
+  
+  <app-control-sidebar></app-control-sidebar>
+
+</div>
