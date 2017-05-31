@@ -13,6 +13,7 @@ import { SettingsModule } from './settings/settings.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { FormsModule } from './forms/forms.module';
 import { BIChartsModule } from './charts/charts.module';
+import { UiElementsModule } from './ui-elements/ui-elements.module';
 
 import {
   ApiService,
@@ -56,7 +57,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
       
       DashboardModule,
       FormsModule,
-      BIChartsModule
+      BIChartsModule,
+      UiElementsModule
   ],
   providers: [
     ApiService,
