@@ -7,9 +7,13 @@ import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
 import { EditorModule } from './editor/editor.module';
 import { HomeModule } from './home/home.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
+
+import { DashboardModule } from './dashboard/dashboard.module';
+import { FormsModule } from './forms/forms.module';
+import { BIChartsModule } from './charts/charts.module';
+
 import {
   ApiService,
   ArticlesService,
@@ -27,6 +31,7 @@ import {
 } from './shared';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
 @NgModule({
@@ -43,12 +48,15 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     AuthModule,
     EditorModule,
     HomeModule,
-    DashboardModule,
     ProfileModule,
     rootRouting,
     SharedModule,
     SettingsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+      
+      DashboardModule,
+      FormsModule,
+      BIChartsModule
   ],
   providers: [
     ApiService,
