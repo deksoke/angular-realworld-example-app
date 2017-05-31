@@ -30,7 +30,8 @@ const uiRouting: ModuleWithProviders = RouterModule.forChild([
     ButtonsComponent, 
     ModalsComponent, 
     TimelineComponent, 
-    GeneralComponent, SlidersComponent
+    GeneralComponent, 
+    SlidersComponent
   ]
 })
 export class UiElementsModule { }

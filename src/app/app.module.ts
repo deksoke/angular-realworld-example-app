@@ -1,6 +1,7 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { ArticleModule } from './article/article.module';
@@ -14,6 +15,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { FormsModule } from './forms/forms.module';
 import { BIChartsModule } from './charts/charts.module';
 import { UiElementsModule } from './ui-elements/ui-elements.module';
+import { MailboxComponent } from "./mailbox/mailbox.component";
 
 import {
   ApiService,
@@ -30,10 +32,12 @@ import {
   MainSidebarComponent,
   ControlSidebarComponent
 } from './shared';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
+const rootRouting: ModuleWithProviders = RouterModule.forRoot([
+    { path: 'mailbox', component: MailboxComponent}
+], { 
+  useHash: true 
+});
 
 @NgModule({
   declarations: [
@@ -41,7 +45,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     MainHeaderComponent,
     MainFooterComponent,
     MainSidebarComponent,
-    ControlSidebarComponent
+    ControlSidebarComponent,
+    MailboxComponent
   ],
   imports: [
     BrowserModule,
