@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared';
+import { NgSelectizeModule } from 'ng-selectize';
 
 import { GeneralElementsComponent } from './general-elements/general-elements.component';
 import { AdvancedElementsComponent } from './advanced-elements/advanced-elements.component';
@@ -17,7 +18,8 @@ const formsRouting: ModuleWithProviders = RouterModule.forChild([
   imports: [
       CommonModule,
       SharedModule,
-      formsRouting
+      formsRouting,
+      NgSelectizeModule
   ],
   declarations: [
       GeneralElementsComponent, 

@@ -24,6 +24,7 @@
         "../node_modules/admin-lte/bootstrap/css/bootstrap.min.css",
         "../node_modules/admin-lte/dist/css/AdminLTE.min.css",
         "../node_modules/admin-lte/dist/css/skins/skin-purple.min.css",
+        "../node_modules/ng-selectize/selectize/selectize.css",
         "styles.css"
       ],
       "scripts": [
@@ -35,7 +36,8 @@
         "../node_modules/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js",
         "../node_modules/moment/moment.js",
         "../node_modules/moment-timezone/moment-timezone.js",
-        "../node_modules/chart.js/dist/chart.min.js"
+        "../node_modules/chart.js/dist/chart.min.js",
+        "../node_modules/ng-selectize/selectize/selectize.standalone.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
