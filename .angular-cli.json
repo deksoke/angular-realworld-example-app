@@ -32,6 +32,7 @@
         "../node_modules/admin-lte/dist/js/app.min.js",
         "../node_modules/admin-lte/dist/js/demo.js",
         "../node_modules/admin-lte/dist/js/pages/dashboard.js",
+        "../node_modules/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js",
         "../node_modules/moment/src/moment.js",
         "../node_modules/moment-timezone/moment-timezone.js",
         "../node_modules/chart.js/dist/chart.min.js"
