@@ -32,28 +32,28 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Minimal</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Alabama</option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select>
+                <ng-selectize 
+                    [config]="config" 
+                    [options]="options" 
+                    [enabled]="isEnabled" 
+                    [(ngModel)]="value" 
+                    ngDefaultControl
+                    ></ng-selectize>
+                <!--<div>
+                  <button class="btn btn-primary" (click)="toggleEnabledState()">Toggle Enabled State</button>
+                  <span>Is Enabled: <strong>{{isEnabled}}</strong></span>
+                  <span>Value: <strong>{{value | json}}</strong></span>
+                </div>-->
               </div>
               <!-- /.form-group -->
               <div class="form-group">
                 <label>Disabled</label>
-                <select class="form-control select2" disabled="disabled" style="width: 100%;">
-                  <option selected="selected">Alabama</option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select>
+                <ng-selectize 
+                    [config]="config" 
+                    [options]="options" 
+                    [enabled]="false" 
+                    [(ngModel)]="value" 
+                    ngDefaultControl></ng-selectize>
               </div>
               <!-- /.form-group -->
             </div>
@@ -61,15 +61,16 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Multiple</label>
-                <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
-                  <option>Alabama</option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select>
+                <ng-selectize 
+                      [config]="multipleConfig" 
+                      [options]="options" 
+                      [placeholder]="placeholder" 
+                      [(ngModel)]="multipleValue"
+                      (ngModelChange)="onValueChange($event)" 
+                      ngDefaultControl></ng-selectize>
+                <!--<div class="form form-inline">
+                  <pre>Current value: {{multipleValue | json}}</pre>
+                </div>-->
               </div>
               <!-- /.form-group -->
               <div class="form-group">
@@ -92,7 +93,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
+          Visit <a href="http://nicholasazar.com/ng-selectize/">Ng-Selectize examples & documentation</a> for more examples and information about
           the plugin.
         </div>
       </div>
