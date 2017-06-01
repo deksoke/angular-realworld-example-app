@@ -13,6 +13,7 @@ import { SettingsModule } from './settings/settings.module';
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { FormsModule } from './forms/forms.module';
+import { TablesModule } from './tables/tables.module';
 import { BIChartsModule } from './charts/charts.module';
 import { UiElementsModule } from './ui-elements/ui-elements.module';
 import { MailboxComponent } from "./mailbox/mailbox.component";
@@ -63,7 +64,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
       DashboardModule,
       FormsModule,
       BIChartsModule,
-      UiElementsModule
+      UiElementsModule,
+      TablesModule
   ],
   providers: [
     ApiService,
