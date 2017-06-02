@@ -25,6 +25,7 @@
         "../node_modules/admin-lte/dist/css/AdminLTE.min.css",
         "../node_modules/admin-lte/dist/css/skins/skin-purple.min.css",
         "../node_modules/ng-selectize/selectize/selectize.css",
+        "../node_modules/jquery-confirm/css/jquery-confirm.css",
         "styles.css"
       ],
       "scripts": [
@@ -36,7 +37,8 @@
         "../node_modules/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js",
         "../node_modules/admin-lte/plugins/ionslider/ion.rangeSlider.min.js",
         "../node_modules/admin-lte/plugins/bootstrap-slider/bootstrap-slider.js",
-
+        "../node_modules/jquery-confirm/js/jquery-confirm.js",
+        
         "../node_modules/moment/moment.js",
         "../node_modules/moment-timezone/moment-timezone.js",
         "../node_modules/chart.js/dist/chart.min.js",

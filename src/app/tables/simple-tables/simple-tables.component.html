@@ -27,16 +27,17 @@
               <table class="table table-bordered table-striped table-hover">
                 <thead>
                   <tr>
-                    <th>title</th>
-                    <th>id</th>
-                    <th>delete</th>
+                    <th class="text-center">title</th>
+                    <th class="text-center">#</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let post of posts">
                     <td>{{ post.title }}</td>
-                    <td>{{ post.id }}</td>
-                    <td><button class="btn btn-danger" (click)="deletePost(post)"><i class="fa fa-remove"></i></button></td>                    
+                    <td class="text-center">
+                      <button class="btn btn-warning" (click)="confirmDelete(post)"><i class="fa fa-edit"></i></button>
+                      <button class="btn btn-danger" (click)="confirmDelete(post)"><i class="fa fa-remove"></i></button>
+                    </td>                    
                   </tr>
                 </tbody>
               </table>

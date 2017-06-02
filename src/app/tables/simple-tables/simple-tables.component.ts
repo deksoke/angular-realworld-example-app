@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Post, PostService } from '../../shared';
 
+declare var $:any;
+
 @Component({
   selector: 'app-simple-tables',
   templateUrl: './simple-tables.component.html',
@@ -18,7 +20,9 @@ export class SimpleTablesComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private postService: PostService
-  ) { }
+  ) { 
+
+  }
 
   ngOnInit() {
     //Retreive the posts
@@ -41,9 +45,9 @@ export class SimpleTablesComponent implements OnInit {
     this.postService.getObservableforkJoinObjects(3, 6, 20)
       .subscribe(
         items => {
-          console.log(items[0]);
-          console.log(items[1]);
-          console.log(items[2]);
+          //console.log(items[0]);
+          //console.log(items[1]);
+          //console.log(items[2]);
           this.populatePosts();
       });
   }
@@ -63,10 +67,24 @@ export class SimpleTablesComponent implements OnInit {
 
   }
 
+  confirmDelete(post: Post){
+    var self = this;
+    $.confirm({
+    title: 'Confirm! Delete ',
+    content: post.title,
+    buttons: {
+        confirm: function () {
+            self.deletePost(post);
+        },
+        cancel: function () {
+            //$.alert('Canceled!');
+        }
+    }
+});
+  }
+
   deletePost(post: Post){
-    this.postService.destroy(post.id)
-      .subscribe(success => {
-        this.populatePosts();
-      });
+    console.log('deletePost');
+    this.postService.destroy(post.id)      .subscribe(success => {        this.populatePosts();      });
   }
 }
