@@ -5,3 +5,5 @@ export * from './errors.model';
 export * from './profile.model';
 export * from './user.model';
 export * from './post.model';
+export * from './data.model';
+export * from './paged-response.model';
