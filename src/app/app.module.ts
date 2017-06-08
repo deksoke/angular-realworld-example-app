@@ -18,6 +18,8 @@ import { BIChartsModule } from './charts/charts.module';
 import { UiElementsModule } from './ui-elements/ui-elements.module';
 import { MailboxComponent } from "./mailbox/mailbox.component";
 
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+
 import {
   ApiService,
   ArticlesService,
@@ -61,6 +63,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     SharedModule,
     SettingsModule,
     NgbModule.forRoot(),
+      SlimLoadingBarModule.forRoot(),
       
       DashboardModule,
       FormsModule,

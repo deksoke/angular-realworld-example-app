@@ -26,6 +26,7 @@
         "../node_modules/admin-lte/dist/css/skins/skin-purple.min.css",
         "../node_modules/ng-selectize/selectize/selectize.css",
         "../node_modules/jquery-confirm/css/jquery-confirm.css",
+        "../node_modules/ng2-slim-loading-bar/style.css",
         "styles.css"
       ],
       "scripts": [
