@@ -31,11 +31,8 @@
     "moment-timezone": "^0.5.13",
     "ng-selectize": "^1.0.10",
     "ng2-charts": "^1.6.0",
-<<<<<<< HEAD
     "ngx-bootstrap": "^1.7.1",
-=======
     "ng2-slim-loading-bar": "^4.0.0",
->>>>>>> 0e15e1eade592fabbd41cac3e92a8faeb9281a13
     "rxjs": "^5.1.0",
     "ts-helpers": "^1.1.2",
     "zone.js": "^0.8.4"
