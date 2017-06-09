@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   ori_api_url: 'https://conduit.productionready.io/api',
-  api_url: 'https://jsonplaceholder.typicode.com'
+  api_url: 'http://localhost:55449/api'
 };

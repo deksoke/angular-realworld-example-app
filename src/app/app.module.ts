@@ -31,6 +31,7 @@ import {
   TagsService,
   UserService,
   PostService,
+  DataService,
   MainHeaderComponent,
   MainFooterComponent,
   MainSidebarComponent,
@@ -80,7 +81,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     ProfilesService,
     TagsService,
     UserService,
-    PostService
+    PostService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

@@ -9,9 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico",
-        { "glob": "**/*", "input": "../node_modules/admin-lte/dist/", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/admin-lte/bootstrap/", "output": "./assets/bootstrap" }
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -21,23 +19,23 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../node_modules/admin-lte/bootstrap/css/bootstrap.min.css",
-        "../node_modules/admin-lte/dist/css/AdminLTE.min.css",
-        "../node_modules/admin-lte/dist/css/skins/skin-purple.min.css",
+        "assets/theme/bootstrap/css/bootstrap.min.css",
+        "assets/theme/dist/css/AdminLTE.css",
+        "assets/theme/dist/css/skins/skin-purple.min.css",
         "../node_modules/ng-selectize/selectize/selectize.css",
         "../node_modules/jquery-confirm/css/jquery-confirm.css",
         "../node_modules/ng2-slim-loading-bar/style.css",
         "styles.css"
       ],
       "scripts": [
-        "../node_modules/admin-lte/plugins/jquery/jquery-2.2.3.min.js",
-        "../node_modules/admin-lte/bootstrap/js/bootstrap.min.js",
-        "../node_modules/admin-lte/dist/js/app.min.js",
-        "../node_modules/admin-lte/dist/js/demo.js",
-        "../node_modules/admin-lte/dist/js/pages/dashboard.js",
-        "../node_modules/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js",
-        "../node_modules/admin-lte/plugins/ionslider/ion.rangeSlider.min.js",
-        "../node_modules/admin-lte/plugins/bootstrap-slider/bootstrap-slider.js",
+        "assets/theme/plugins/jquery/jquery-2.2.3.min.js",
+        "assets/theme/bootstrap/js/bootstrap.min.js",
+        "assets/theme/dist/js/app.min.js",
+        "assets/theme/dist/js/demo.js",
+        "assets/theme/dist/js/pages/dashboard.js",
+        "assets/theme/plugins/slimScroll/jquery.slimscroll.min.js",
+        "assets/theme/plugins/ionslider/ion.rangeSlider.min.js",
+        "assets/theme/plugins/bootstrap-slider/bootstrap-slider.js",
         "../node_modules/jquery-confirm/js/jquery-confirm.js",
         
         "../node_modules/moment/moment.js",

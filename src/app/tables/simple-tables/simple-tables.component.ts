@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Post, PostService } from '../../shared';
+import { Post, DataModel, PostService, DataService } from '../../shared';
 
 declare var $:any;
 
@@ -15,11 +15,18 @@ export class SimpleTablesComponent implements OnInit {
 
   posts: Post[];
   isLoading: boolean = false;
+  datas: DataModel[];
+
+  maxSize: number = 5;
+  public totalItems: number = 64;
+  public currentPage: number = 4;
+  public smallnumPages: number = 0;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private postService: PostService
+    private postService: PostService,
+    private dataService: DataService
   ) { 
 
   }
@@ -27,7 +34,28 @@ export class SimpleTablesComponent implements OnInit {
   ngOnInit() {
     //Retreive the posts
     //this.populatePosts();
-    this.testHttpRequestReturnObservableWithForkJoinObjects();
+    //this.testHttpRequestReturnObservableWithForkJoinObjects();
+
+    this.getPage(1);
+  }
+
+  getPage(page:number){
+    this.dataService.getDataByPage(page)
+      .subscribe(res => {
+        this.currentPage = res.pageIndex;
+        this.totalItems = res.pageTotal;
+        this.datas = res.data;
+      });
+  }
+
+  public setPage(pageNo: number): void {
+    this.currentPage = pageNo;
+  }
+ 
+  public pageChanged(event: any): void {
+    this.getPage(event.page);
+    console.log('Page changed to: ' + event.page);
+    console.log('Number items per page: ' + event.itemsPerPage);
   }
 
   private testHttpRequestReturnObservableWithConcatObjects(){
