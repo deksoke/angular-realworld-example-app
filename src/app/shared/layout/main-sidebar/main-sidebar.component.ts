@@ -19,7 +19,6 @@ export class MainSidebarComponent implements OnInit {
     this.common.getMenuItems()
       .subscribe(data => {
         this.menu_items = data;
-        console.log(data);
       });
   }
 
