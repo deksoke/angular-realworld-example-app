@@ -25,7 +25,25 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class="treeview" *ngFor="let mItem of menu_items; let idx = index;">
+          <a href="#" routerLink="{{ mItem.routerLink }}" *ngIf="!mItem.menu_items">
+            <i class="{{ mItem.iconClass }}"></i> <span>{{ mItem.title }}</span>
+          </a>
+          <a href="#" *ngIf="mItem.menu_items">
+            <i class="{{ mItem.iconClass }}"></i> <span>{{ mItem.title }}</span>
+            <span class="pull-right-container" *ngIf="mItem.menu_items">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" *ngIf="mItem.menu_items">
+            <li *ngFor="let sItem of mItem.menu_items">
+              <a class="nav-link" routerLink="{{ sItem.routerLink }}" routerLinkActive="active">
+                <i class="{{ sItem.iconClass || 'fa fa-circle-o' }}"></i> {{ sItem.title }}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!--<li class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
@@ -260,7 +278,7 @@
         <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>-->
       </ul>
     </section>
     <!-- /.sidebar -->

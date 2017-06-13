@@ -27,6 +27,7 @@ import {
   CommentsService,
   JwtService,
   ProfilesService,
+  CommonService,
   SharedModule,
   TagsService,
   UserService,
@@ -82,7 +83,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     TagsService,
     UserService,
     PostService,
-    DataService
+    DataService,
+    CommonService
   ],
   bootstrap: [AppComponent]
 })

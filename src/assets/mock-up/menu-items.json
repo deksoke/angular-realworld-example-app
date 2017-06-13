@@ -1,0 +1,56 @@
+[
+    {
+        "title":"Dashboaard",
+        "iconClass":"fa fa-dashboard",
+        "clickable": false,
+        "menu_items" : [
+            {"title":"Dashboard V1", "routerLink": "/", "routerLinkActive":"active"},
+            {"title":"Dashboard V2", "routerLink": "/dashboard/index2", "routerLinkActive":"active"}
+        ]
+    },
+    {
+        "title":"Charts",
+        "iconClass":"fa fa-pie-chart",
+        "clickable": false,
+        "menu_items" : [
+            {"title":"Chart JS", "routerLink": "/charts/chartjs", "routerLinkActive":"active"},
+            {"title":"Morris", "routerLink": "/charts/morris", "routerLinkActive":"active"},
+            {"title":"Ng2 Charts", "routerLink": "/charts/ng2charts", "routerLinkActive":"active"},
+            {"title":"ng2 Google Charts", "routerLink": "/charts/ng2googlecharts", "routerLinkActive":"active"}
+        ]
+    },
+    {
+        "title":"Forms",
+        "iconClass":"fa fa-edit",
+        "clickable": false,
+        "menu_items" : [
+            {"title":"General Elements", "routerLink": "/forms/general", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"Advanced Elements", "routerLink": "/forms/advanced", "routerLinkActive":"active"},
+            {"title":"Editor", "routerLink": "/forms/editor", "routerLinkActive":"active"}
+        ]
+    },
+    {
+        "title":"Tables",
+        "iconClass":"fa fa-table",
+        "clickable": false,
+        "menu_items" : [
+            {"title":"Sample tables", "routerLink": "/table/sample", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"Data tables", "routerLink": "/table/data", "routerLinkActive":"active"}
+        ]
+    },
+    {
+        "title":"Mailbox",
+        "iconClass":"fa fa-envelope",
+        "clickable": true,
+        "routerLink": "/mailbox", 
+        "routerLinkActive":"active"
+    },
+    {
+        "title":"Calendar",
+        "iconClass":"fa fa-calendar",
+        "clickable": true,
+        "routerLink": "/calendar", 
+        "routerLinkActive":"active"
+    }
+
+]

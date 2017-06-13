@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from './../../services/common.service';
+import { Observable } from 'RxJs'
 
 @Component({
   selector: 'app-main-sidebar',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainSidebarComponent implements OnInit {
 
-  constructor() { }
+  menu_items: any[];
+
+  constructor(
+    private common: CommonService
+  ) { }
 
   ngOnInit() {
+    this.common.getMenuItems()
+      .subscribe(data => {
+        this.menu_items = data;
+        console.log(data);
+      });
   }
 
+  getMenuIconClass(): any{
+    let iconClass = {
+
+    };
+
+    return iconClass;
+  }
 }
