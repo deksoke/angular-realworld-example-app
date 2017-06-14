@@ -11,6 +11,8 @@ import { DataModel, PagedResponse } from '../models';
 @Injectable()
 export class DataService implements IService<DataModel> {
 
+  constructor (private apiService: ApiService) {}
+
   getData(): Observable<DataModel> {
     throw new Error("Method not implemented.");
   }
@@ -23,9 +25,6 @@ export class DataService implements IService<DataModel> {
   delete(model: DataModel): boolean {
     throw new Error("Method not implemented.");
   }
-
-  constructor (private apiService: ApiService) {}
-
   getDataByPage(pageIndex: number, pageSize:number = 10): Observable<PagedResponse<DataModel>> {
     return this.apiService.get("/data/" + pageIndex + "/" + pageSize)
       .map(res => res);

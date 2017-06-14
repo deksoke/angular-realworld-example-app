@@ -9,6 +9,10 @@ export class MailboxComponent implements OnInit {
 
   constructor() { }
 
+  ngAfterContentInit(){
+    window.scroll(0,0);
+  }
+
   ngOnInit() {
   }
 

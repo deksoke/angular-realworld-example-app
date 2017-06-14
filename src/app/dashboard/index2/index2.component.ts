@@ -35,6 +35,10 @@ export class Index2Component implements OnInit {
 
   constructor() { }
 
+  ngAfterContentInit(){
+    window.scroll(0,0);
+  }
+
   ngOnInit() {
     /* jVector Maps
    * ------------
