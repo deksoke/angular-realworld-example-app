@@ -3,6 +3,7 @@ import { URLSearchParams, Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Log, Level } from 'ng2-logger';
 
 import { ApiService } from './api.service';
 import { Post } from '../models';
@@ -15,6 +16,9 @@ export enum ConfirmBoxType {
   error
 }
 
+//https://www.npmjs.com/package/ng2-logger
+const log = Log.create('common service');
+
 @Injectable()
 export class CommonService {
   constructor (
@@ -22,8 +26,15 @@ export class CommonService {
     private http: Http
   ) {}
 
+  private formatErrors(error: any) {
+    log.error("has a error");
+    return Observable.throw(error.json());
+  }
+
   getMenuItems(): Observable<any> {
+    log.info("load menu items");
     return this.http.get('/assets/mock-up/menu-items.json')
+        .catch(this.formatErrors)
         .map(data => data.json());
   }
 

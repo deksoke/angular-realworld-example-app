@@ -4,6 +4,11 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared';
 import { NgSelectizeModule } from 'ng-selectize';
 
+import { 
+    CalendarModule ,
+    InputMaskModule
+} from 'primeng/primeng';
+
 import { GeneralElementsComponent } from './general-elements/general-elements.component';
 import { AdvancedElementsComponent } from './advanced-elements/advanced-elements.component';
 import { EditorsComponent } from './editors/editors.component';
@@ -15,16 +20,18 @@ const formsRouting: ModuleWithProviders = RouterModule.forChild([
 ]);
 
 @NgModule({
-  imports: [
-      CommonModule,
-      SharedModule,
-      formsRouting,
-      NgSelectizeModule
-  ],
-  declarations: [
-      GeneralElementsComponent, 
-      AdvancedElementsComponent, 
-      EditorsComponent
-  ]
+    imports: [
+        CommonModule,
+        SharedModule,
+        formsRouting,
+        NgSelectizeModule,
+        CalendarModule,
+        InputMaskModule
+    ],
+    declarations: [
+        GeneralElementsComponent,
+        AdvancedElementsComponent,
+        EditorsComponent
+    ]
 })
 export class FormsModule { }

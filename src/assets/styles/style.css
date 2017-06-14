@@ -1,0 +1,13 @@
+.ui-calendar {
+  width: 100%;
+}
+
+.ui-calendar .ui-inputtext {
+  padding: 6px 12px !important;
+}
+
+.ui-calendar button {
+  width: 2.5em !important;
+  top: 0px;
+  right: -1px;
+}

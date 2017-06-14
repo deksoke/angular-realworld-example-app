@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -39,11 +40,13 @@ import {
   ControlSidebarComponent
 } from './shared';
 
+import { CalendarModule } from 'primeng/primeng';
+
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
-    { path: 'mailbox', component: MailboxComponent}
-], { 
-  useHash: true 
-});
+  { path: 'mailbox', component: MailboxComponent }
+], {
+    useHash: true
+  });
 
 @NgModule({
   declarations: [
@@ -56,6 +59,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ArticleModule,
     AuthModule,
     EditorModule,
@@ -65,13 +69,15 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     SharedModule,
     SettingsModule,
     NgbModule.forRoot(),
-      SlimLoadingBarModule.forRoot(),
-      
-      DashboardModule,
-      FormsModule,
-      BIChartsModule,
-      UiElementsModule,
-      TablesModule
+    SlimLoadingBarModule.forRoot(),
+
+    DashboardModule,
+    FormsModule,
+    BIChartsModule,
+    UiElementsModule,
+    TablesModule,
+
+    CalendarModule
   ],
   providers: [
     ApiService,

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { Log, Level } from 'ng2-logger';
+
+
+const log = Log.create('form_advanced component');
+
 
 interface ExampleSelectizeOption {
 	label: string;
@@ -59,9 +64,14 @@ export class AdvancedElementsComponent implements OnInit {
   multipleConfig:any = MULTI_SELECT_CONFIG;
   multipleValue: string[];
 
+  sampleDate:Date;
+  inputMaskVal:string;
+
   constructor() { }
 
   ngOnInit() {
+    this.sampleDate = new Date();
+    log.info(this.sampleDate.toDateString());
 
 	//Datemask dd/mm/yyyy
     $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
