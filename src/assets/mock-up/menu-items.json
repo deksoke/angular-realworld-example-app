@@ -26,7 +26,7 @@
         "menu_items" : [
             {"title":"General Elements", "routerLink": "/forms/general", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
             {"title":"Advanced Elements", "routerLink": "/forms/advanced", "routerLinkActive":"active"},
-            {"title":"Editor", "routerLink": "/forms/editor", "routerLinkActive":"active"}
+            {"title":"Editor", "routerLink": "/forms/editors", "routerLinkActive":"active"}
         ]
     },
     {
