@@ -8,7 +8,7 @@ import { Index2Component } from './index2/index2.component';
 import { IndexComponent } from './index/index.component';
 
 const dashboardRouting: ModuleWithProviders = RouterModule.forChild([
-  { path: '', component: IndexComponent },
+  { path: 'dashboard/index', component: IndexComponent },
   { path: 'dashboard/index2', component: Index2Component }
 ]);
 

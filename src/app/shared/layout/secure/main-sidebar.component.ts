@@ -3,9 +3,8 @@ import { CommonService } from './../../services/common.service';
 import { Observable } from 'RxJs'
 
 @Component({
-  selector: 'app-main-sidebar',
-  templateUrl: './main-sidebar.component.html',
-  styleUrls: ['./main-sidebar.component.css']
+  selector: 'main-sidebar',
+  templateUrl: './main-sidebar.component.html'
 })
 export class MainSidebarComponent implements OnInit {
 

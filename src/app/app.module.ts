@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 import { AppComponent } from './app.component';
 import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
@@ -18,7 +19,9 @@ import { FormsModule } from './forms/forms.module';
 import { TablesModule } from './tables/tables.module';
 import { BIChartsModule } from './charts/charts.module';
 import { UiElementsModule } from './ui-elements/ui-elements.module';
+
 import { MailboxComponent } from "./mailbox/mailbox.component";
+import { CalendarComponent } from './calendar/calendar.component';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
@@ -42,14 +45,17 @@ import {
 } from './shared';
 
 import { CalendarModule } from 'primeng/primeng';
-import { CalendarComponent } from './calendar/calendar.component';
 
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([
-  { path: 'mailbox', component: MailboxComponent },
-  { path: 'calendar', component: CalendarComponent }
-], {
-    useHash: true
-  });
+import { SecureComponent, PublicComponent } from './shared';
+import { PUBLIC_ROUTES } from './public.routes';
+import { SECURE_ROUTES } from './secure.routes';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', component: PublicComponent, data: { title: 'Public Views' }, children: PUBLIC_ROUTES },
+  { path: '', component: SecureComponent, data: { title: 'Secure Views' }, children: SECURE_ROUTES },
+  { path: '**', redirectTo: 'login' }
+];
 
 @NgModule({
   declarations: [
@@ -69,7 +75,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     EditorModule,
     HomeModule,
     ProfileModule,
-    rootRouting,
+    RouterModule.forRoot(routes),
     SharedModule,
     SettingsModule,
     ExamplesModule,
