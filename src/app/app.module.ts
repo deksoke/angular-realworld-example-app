@@ -41,9 +41,11 @@ import {
 } from './shared';
 
 import { CalendarModule } from 'primeng/primeng';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
-  { path: 'mailbox', component: MailboxComponent }
+  { path: 'mailbox', component: MailboxComponent },
+  { path: 'calendar', component: CalendarComponent }
 ], {
     useHash: true
   });
@@ -55,7 +57,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     MainFooterComponent,
     MainSidebarComponent,
     ControlSidebarComponent,
-    MailboxComponent
+    MailboxComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
