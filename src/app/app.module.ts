@@ -11,6 +11,7 @@ import { EditorModule } from './editor/editor.module';
 import { HomeModule } from './home/home.module';
 import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
+import { ExamplesModule } from './examples/examples.module';
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { FormsModule } from './forms/forms.module';
@@ -71,6 +72,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     rootRouting,
     SharedModule,
     SettingsModule,
+    ExamplesModule,
     NgbModule.forRoot(),
     SlimLoadingBarModule.forRoot(),
 

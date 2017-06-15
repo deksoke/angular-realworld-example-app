@@ -34,8 +34,8 @@
         "iconClass":"fa fa-table",
         "clickable": false,
         "menu_items" : [
-            {"title":"Sample tables", "routerLink": "/table/sample", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
-            {"title":"Data tables", "routerLink": "/table/data", "routerLinkActive":"active"}
+            {"title":"Sample tables", "routerLink": "/tables/sample", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"Data tables", "routerLink": "/tables/data", "routerLinkActive":"active"}
         ]
     },
      {
@@ -51,5 +51,21 @@
         "clickable": true,
         "routerLink": "/mailbox", 
         "routerLinkActive":"active"
+    },
+    {
+        "title":"Examples",
+        "iconClass":"fa fa-folder",
+        "clickable": false,
+        "menu_items" : [
+            {"title":"Invoice", "routerLink": "/examples/invoice", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"Profile", "routerLink": "/examples/profile", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"Login", "routerLink": "/examples/login", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"Register", "routerLink": "/examples/register", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"Lock Screen", "routerLink": "/examples/lockscreen", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"404 Error", "routerLink": "/examples/404", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"500 Error", "routerLink": "/examples/500", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"Blank Page", "routerLink": "/examples/blank", "routerLinkActive":"active", "iconClass":"fa fa-circle-o"},
+            {"title":"Pace Page", "routerLink": "/examples/pace", "routerLinkActive":"active"}
+        ]
     }
 ]
