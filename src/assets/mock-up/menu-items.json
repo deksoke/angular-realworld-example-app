@@ -38,19 +38,18 @@
             {"title":"Data tables", "routerLink": "/table/data", "routerLinkActive":"active"}
         ]
     },
+     {
+        "title":"Calendar",
+        "iconClass":"fa fa-calendar",
+        "clickable": true,
+        "routerLink": "/calendar", 
+        "routerLinkActive":"active"
+    },
     {
         "title":"Mailbox",
         "iconClass":"fa fa-envelope",
         "clickable": true,
         "routerLink": "/mailbox", 
         "routerLinkActive":"active"
-    },
-    {
-        "title":"Calendar",
-        "iconClass":"fa fa-calendar",
-        "clickable": true,
-        "routerLink": "/calendar", 
-        "routerLinkActive":"active"
     }
-
 ]
