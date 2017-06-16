@@ -4,7 +4,6 @@ import { RouterModule } from "@angular/router";
 
 import { InvoiceComponent } from './invoice/invoice.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './login/login.component';
 import { LockScreenComponent } from './lock-screen/lock-screen.component';
 import { RegisterComponent } from './register/register.component';
 import { Error404Component } from './error404/error404.component';
@@ -15,7 +14,7 @@ import { BlankPageComponent } from './blank-page/blank-page.component';
 const routes: ModuleWithProviders = RouterModule.forChild([
   { path: 'examples/invoice', component: InvoiceComponent },
   { path: 'examples/profile', component: ProfileComponent },
-  { path: 'examples/login', component: LoginComponent },
+  //{ path: 'examples/login', component: LoginComponent },
   { path: 'examples/lockscreen', component: LockScreenComponent },
   { path: 'examples/register', component: RegisterComponent },
   { path: 'examples/404', component: Error404Component },
@@ -32,7 +31,6 @@ const routes: ModuleWithProviders = RouterModule.forChild([
   declarations: [
     InvoiceComponent,
     ProfileComponent,
-    LoginComponent,
     RegisterComponent,
     Error404Component,
     Error500Component,

@@ -46,15 +46,9 @@ import {
 
 import { CalendarModule } from 'primeng/primeng';
 
-import { SecureComponent, PublicComponent } from './shared';
-import { PUBLIC_ROUTES } from './public.routes';
-import { SECURE_ROUTES } from './secure.routes';
-
-const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '', component: PublicComponent, data: { title: 'Public Views' }, children: PUBLIC_ROUTES },
-  { path: '', component: SecureComponent, data: { title: 'Secure Views' }, children: SECURE_ROUTES },
-  { path: '**', redirectTo: 'login' }
+const appRoutes: Routes = [
+    { path: 'mailbox', component: MailboxComponent },
+    { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -75,7 +69,7 @@ const routes: Routes = [
     EditorModule,
     HomeModule,
     ProfileModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(appRoutes),
     SharedModule,
     SettingsModule,
     ExamplesModule,
