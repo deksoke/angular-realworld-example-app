@@ -38,6 +38,8 @@ import {
   UserService,
   PostService,
   DataService,
+  UserFireBaseService,
+  
   MainHeaderComponent,
   MainFooterComponent,
   MainSidebarComponent,
@@ -101,7 +103,8 @@ const routes: Routes = [
     UserService,
     PostService,
     DataService,
-    CommonService
+    CommonService,
+    UserFireBaseService
   ],
   bootstrap: [AppComponent]
 })

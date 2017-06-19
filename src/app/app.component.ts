@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
-import { UserService } from './shared';
+import { UserService, UserFireBaseService } from './shared';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor (
     private slimLoader: SlimLoadingBarService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    public userFireBaseService: UserFireBaseService
   ) {
         // Listen the navigation events to start or complete the slim bar loading
         this.sub = this.router.events.subscribe(event => {
@@ -39,5 +40,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  logout(){
+    this.userFireBaseService.logOut();
   }
 }

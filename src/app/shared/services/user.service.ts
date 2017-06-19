@@ -10,6 +10,9 @@ import { ApiService } from './api.service';
 import { JwtService } from './jwt.service';
 import { User } from '../models';
 
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+
 
 @Injectable()
 export class UserService {
@@ -86,3 +89,65 @@ export class UserService {
   }
 
 }
+
+
+
+@Injectable()
+export class UserFireBaseService {
+  private user: Observable<firebase.User>;
+  private currentUserSubject: BehaviorSubject<Observable<firebase.User>>;
+  public currentUser = this.currentUserSubject.asObservable().distinctUntilChanged();
+
+  private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
+  public isAuthenticated = this.isAuthenticatedSubject.asObservable();
+
+  constructor (
+    private apiService: ApiService,
+    private http: Http,
+    private jwtService: JwtService,
+    public afAuth: AngularFireAuth
+  ) {
+    this.user = afAuth.authState;
+  }
+
+  setAuth(user: any, token: string) {
+    // Save JWT sent from server in localstorage
+    this.jwtService.saveToken(token);
+    // Set current user data into observable
+    this.currentUserSubject.next(user);
+    // Set isAuthenticated to true
+    this.isAuthenticatedSubject.next(true);
+  }
+
+  purgeAuth() {
+    // Remove JWT from localstorage
+    this.jwtService.destroyToken();
+    // Set current user to an empty object
+    this.currentUserSubject.next(null);
+    // Set auth status to false
+    this.isAuthenticatedSubject.next(false);
+  }
+
+  login() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then(result => {
+        console.log('login success');
+        console.log(result.user);
+        this.user = result.user;
+
+        this.setAuth(result.user, result.credential.token);
+      })
+      .catch(err => err);
+  }
+
+  logOut() {
+    this.purgeAuth();
+    this.afAuth.auth.signOut();
+  }
+
+  getCurrentUser(): any {
+    return this.currentUserSubject.value;
+  }
+
+}
+
