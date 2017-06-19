@@ -8,8 +8,6 @@ import { ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent } f
 import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
-import { SecureComponent } from './layout/secure/secure.component';
-import { PublicComponent } from './layout/public/public.component';
 
 
 @NgModule({
@@ -27,9 +25,7 @@ import { PublicComponent } from './layout/public/public.component';
     FavoriteButtonComponent,
     FollowButtonComponent,
     ListErrorsComponent,
-    ShowAuthedDirective,
-    SecureComponent,
-    PublicComponent
+    ShowAuthedDirective
   ],
   exports: [
     ArticleListComponent,

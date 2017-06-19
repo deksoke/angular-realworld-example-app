@@ -4,8 +4,17 @@
         "iconClass":"fa fa-dashboard",
         "clickable": false,
         "menu_items" : [
-            {"title":"Dashboard V1", "routerLink": "/", "routerLinkActive":"active"},
+            {"title":"Dashboard V1", "routerLink": "/dashboard/index", "routerLinkActive":"active"},
             {"title":"Dashboard V2", "routerLink": "/dashboard/index2", "routerLinkActive":"active"}
+        ]
+    },
+    {
+        "title":"Authenticate",
+        "iconClass":"fa fa-edit",
+        "clickable": false,
+        "menu_items" : [
+            {"title":"Login", "routerLink": "/login", "routerLinkActive":"active"},
+            {"title":"Register", "routerLink": "/auth/register", "routerLinkActive":"active"}
         ]
     },
     {
