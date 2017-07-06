@@ -16,7 +16,20 @@ export class AuthFireBaseGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> {
 
-    return this.userService.isAuthenticated.take(1);
+    //return this.userService.isAuthenticated.take(1);
+
+    let res = this.userService.isAuthenticated.take(1);
+    res.subscribe(
+      isActivate => {
+        if (!isActivate){
+          console.log('user not login. >>> redirect to login page');
+          this.router.navigate(['/auth/login']);
+        }else{
+          console.log('login successfully jarrrr.');
+        }
+      }
+    );
+    return res;
 
   }
 }

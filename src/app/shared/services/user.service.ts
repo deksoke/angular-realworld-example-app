@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -91,62 +92,91 @@ export class UserService {
 }
 
 
-
 @Injectable()
 export class UserFireBaseService {
-  private user: Observable<firebase.User>;
-  private currentUserSubject: BehaviorSubject<Observable<firebase.User>>;
+  private currentUserSubject = new BehaviorSubject<firebase.User>(null);
   public currentUser = this.currentUserSubject.asObservable().distinctUntilChanged();
 
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
   constructor (
-    private apiService: ApiService,
-    private http: Http,
     private jwtService: JwtService,
-    public afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private router: Router
   ) {
-    this.user = afAuth.authState;
+    //this.getCurrentUser();
   }
 
-  setAuth(user: any, token: string) {
-    // Save JWT sent from server in localstorage
-    this.jwtService.saveToken(token);
-    // Set current user data into observable
-    this.currentUserSubject.next(user);
-    // Set isAuthenticated to true
-    this.isAuthenticatedSubject.next(true);
+  // Verify JWT in localstorage with server & load user's info.
+  // This runs once on application startup.
+  populate() {
+    console.log('populate userinfo');
+    console.log(this.jwtService.getToken());
+
+    // If JWT detected, attempt to get & store user's info
+    if (this.jwtService.getToken()) {
+      this.setAuth(this.afAuth.authState, this.jwtService.getToken());
+    }else{
+      this.logOut();
+    }
   }
 
-  purgeAuth() {
-    // Remove JWT from localstorage
-    this.jwtService.destroyToken();
-    // Set current user to an empty object
-    this.currentUserSubject.next(null);
-    // Set auth status to false
-    this.isAuthenticatedSubject.next(false);
-  }
-
-  login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+  loginWithFacebook() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then(result => {
-        console.log('login success');
-        console.log(result.user);
-        this.user = result.user;
+        console.log('result');
+        console.log(result);
 
-        this.setAuth(result.user, result.credential.token);
+        this.setAuth(this.afAuth.authState, result.credential.accessToken);
+        this.router.navigate(['/dashboard']);
       })
-      .catch(err => err);
+      .catch(err => {
+        console.log(err.message);
+      });
+  }
+  loginWithGooglePlus() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then(
+        (result) => {
+          this.setAuth(this.afAuth.authState, result.credential.accessToken);
+          this.router.navigate(['/dashboard']);
+        }
+      ).catch(err => {
+        console.log(err.message);
+      });
+  }
+  setAuth(user: Observable<firebase.User>, accessToken:string){
+    if (!user){
+      return;
+    }
+
+    
+    user.subscribe(
+      (data) => {
+        if (data == null || data == undefined){
+          return;
+        }
+
+        console.log('set authenticate to user');
+        this.jwtService.saveToken(accessToken);
+        this.currentUserSubject.next(data);
+        this.isAuthenticatedSubject.next(true);
+      }
+    );
+    
   }
 
   logOut() {
-    this.purgeAuth();
+    this.jwtService.destroyToken();
+    console.log(this.jwtService.getToken());
+    this.currentUserSubject.next(null);
+    this.isAuthenticatedSubject.next(false);
     this.afAuth.auth.signOut();
   }
 
-  getCurrentUser(): any {
-    return this.currentUserSubject.value;
+  getCurrentUser() {
+    this.currentUserSubject.value;
   }
 
 }

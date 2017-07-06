@@ -9,3 +9,6 @@ export * from './user.service';
 export * from './post.service';
 export * from './data.service';
 export * from './common.service';
+
+
+export * from './firebase-guard.service';
