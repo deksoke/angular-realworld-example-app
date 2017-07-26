@@ -4,19 +4,24 @@
 
 <layout-footer></layout-footer>-->
 
+<<<<<<< HEAD
 <div class="login-page" id="publicDiv" *showAuthed="false">
   <div class="">
+=======
+<!--<div class="login-page" id="publicDiv" *showAuthed="false">
+  <div class="wrapper">
+>>>>>>> 6cd4ddbfc59e454306f2edb6c82658cb46cf886c
     <router-outlet></router-outlet>
   </div>
-</div>
+</div>-->
 
-<div class="hold-transition skin-purple sidebar-mini fixed" id="authDiv" *showAuthed="true">
+<div [ngClass]="setContainerClass()" id="authDiv">
   <div class="wrapper">
     <main-header></main-header>
     <main-sidebar></main-sidebar>
     <router-outlet></router-outlet>
     <main-footer></main-footer>
-    <control-sidebar></control-sidebar>
+    <!--<control-sidebar></control-sidebar>-->
   </div>
 </div>
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Errors, UserService } from '../shared';
+import { Errors, UserService, UserFireBaseService } from '../shared';
 
 @Component({
   selector: 'app-auth',
@@ -19,6 +19,7 @@ export class Auth2Component implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
+    private userFirebaseService: UserFireBaseService,
     private fb: FormBuilder
   ) {
     // use FormBuilder to create a form group
@@ -61,6 +62,7 @@ export class Auth2Component implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
+<<<<<<< HEAD
 
   loginWithFacebook(){
     this.userService.loginWithFacebook();
@@ -71,6 +73,18 @@ export class Auth2Component implements OnInit {
 
   logout(){
     this.userService.logout();
+=======
+  loginWithFacebook(){
+    this.userFirebaseService.loginWithFacebook();
+  }
+
+  loginWithGooglePlus(){
+    this.userFirebaseService.loginWithGooglePlus();
+  }
+
+  logout(){
+    this.userFirebaseService.logOut();
+>>>>>>> 6cd4ddbfc59e454306f2edb6c82658cb46cf886c
   }
 
 }

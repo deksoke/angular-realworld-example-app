@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
@@ -14,8 +15,11 @@ import { User } from '../models';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
+<<<<<<< HEAD
 import { Log, Level } from 'ng2-logger';
 const log = Log.create('auth-guard service');
+=======
+>>>>>>> 6cd4ddbfc59e454306f2edb6c82658cb46cf886c
 
 @Injectable()
 export class UserService {
@@ -126,5 +130,96 @@ export class UserService {
 }
 
 
+<<<<<<< HEAD
 
+=======
+@Injectable()
+export class UserFireBaseService {
+  private currentUserSubject = new BehaviorSubject<firebase.User>(null);
+  public currentUser = this.currentUserSubject.asObservable().distinctUntilChanged();
+
+  private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
+  public isAuthenticated = this.isAuthenticatedSubject.asObservable();
+
+  constructor (
+    private jwtService: JwtService,
+    private afAuth: AngularFireAuth,
+    private router: Router
+  ) {
+    //this.getCurrentUser();
+  }
+
+  // Verify JWT in localstorage with server & load user's info.
+  // This runs once on application startup.
+  populate() {
+    console.log('populate userinfo');
+    console.log(this.jwtService.getToken());
+
+    // If JWT detected, attempt to get & store user's info
+    if (this.jwtService.getToken()) {
+      this.setAuth(this.afAuth.authState, this.jwtService.getToken());
+    }else{
+      this.logOut();
+    }
+  }
+
+  loginWithFacebook() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      .then(result => {
+        console.log('result');
+        console.log(result);
+
+        this.setAuth(this.afAuth.authState, result.credential.accessToken);
+        this.router.navigate(['/dashboard']);
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+  }
+  loginWithGooglePlus() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then(
+        (result) => {
+          this.setAuth(this.afAuth.authState, result.credential.accessToken);
+          this.router.navigate(['/dashboard']);
+        }
+      ).catch(err => {
+        console.log(err.message);
+      });
+  }
+  setAuth(user: Observable<firebase.User>, accessToken:string){
+    if (!user){
+      return;
+    }
+
+    
+    user.subscribe(
+      (data) => {
+        if (data == null || data == undefined){
+          return;
+        }
+
+        console.log('set authenticate to user');
+        this.jwtService.saveToken(accessToken);
+        this.currentUserSubject.next(data);
+        this.isAuthenticatedSubject.next(true);
+      }
+    );
+    
+  }
+
+  logOut() {
+    this.jwtService.destroyToken();
+    console.log(this.jwtService.getToken());
+    this.currentUserSubject.next(null);
+    this.isAuthenticatedSubject.next(false);
+    this.afAuth.auth.signOut();
+  }
+
+  getCurrentUser() {
+    this.currentUserSubject.value;
+  }
+
+}
+>>>>>>> 6cd4ddbfc59e454306f2edb6c82658cb46cf886c
 

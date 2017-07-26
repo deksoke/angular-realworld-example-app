@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a [routerLink]="dashboard/index2" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -15,6 +15,7 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+<<<<<<< HEAD
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu" *ngIf="(currentUser)">
             <a href="#" class="dropdown-toggle">
@@ -24,6 +25,19 @@
           </li>
           <li>
             <a href="javascript:void(0)" (click)="logout()" *ngIf="currentUser"><i class="fa fa-sign-out"></i> Log Out</a>
+=======
+          <li class="dropdown user user-menu" *ngIf="currentUser">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img [src]="currentUser.photoURL" *ngIf="currentUser.photoURL" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ currentUser.displayName }}</span>
+            </a>
+          </li>
+          <li *ngIf="!currentUser">
+            <a (click)="login()" data-toggle="control-sidebarx"><i class="fa fa-sign-in"></i> Log In</a>
+          </li>
+          <li *ngIf="currentUser">
+            <a (click)="logout()" data-toggle="control-sidebarx"><i class="fa fa-sign-out"></i> Log Out</a>
+>>>>>>> 6cd4ddbfc59e454306f2edb6c82658cb46cf886c
           </li>
         </ul>
       </div>

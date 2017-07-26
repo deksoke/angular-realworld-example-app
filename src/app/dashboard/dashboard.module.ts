@@ -17,7 +17,6 @@ const dashboardRouting: ModuleWithProviders = RouterModule.forChild([
 
 @NgModule({
     imports: [
-        dashboardRouting,
         SharedModule,
         NgbModule,
         ChartsModule
