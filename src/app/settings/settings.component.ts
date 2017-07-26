@@ -39,7 +39,7 @@ export class SettingsComponent implements OnInit {
   }
 
   logout() {
-    this.userService.purgeAuth();
+    //this.userService.purgeAuth();
     this.router.navigateByUrl('/');
   }
 
@@ -49,15 +49,15 @@ export class SettingsComponent implements OnInit {
     // update the model
     this.updateUser(this.settingsForm.value);
 
-    this.userService
-    .update(this.user)
-    .subscribe(
-      updatedUser => this.router.navigateByUrl('/profile/' + updatedUser.username),
-      err => {
-        this.errors = err;
-        this.isSubmitting = false;
-      }
-    );
+    // this.userService
+    // .update(this.user)
+    // .subscribe(
+    //   updatedUser => this.router.navigateByUrl('/profile/' + updatedUser.username),
+    //   err => {
+    //     this.errors = err;
+    //     this.isSubmitting = false;
+    //   }
+    // );
   }
 
   updateUser(values: Object) {

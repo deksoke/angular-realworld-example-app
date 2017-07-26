@@ -6,5 +6,13 @@
 export const environment = {
   production: false,
   ori_api_url: 'https://conduit.productionready.io/api',
-  api_url: 'http://localhost:55449/api'
+  api_url: 'http://localhost:55449/api',
+  firebase: {
+    apiKey: "AIzaSyBeHLGSD7Uu0OrY1WcBGkP4HctzsmANy_M",
+    authDomain: "brilliant-fire-8341.firebaseapp.com",
+    databaseURL: "https://brilliant-fire-8341.firebaseio.com",
+    projectId: "brilliant-fire-8341",
+    storageBucket: "brilliant-fire-8341.appspot.com",
+    messagingSenderId: "787500207516"
+  }
 };

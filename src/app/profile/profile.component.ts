@@ -22,12 +22,12 @@ export class ProfileComponent implements OnInit {
       (data: {profile: Profile}) => {
         this.profile = data.profile;
         // Load the current user's data.
-        this.userService.currentUser.subscribe(
-          (userData: User) => {
-            this.currentUser = userData;
-            this.isUser = (this.currentUser.username === this.profile.username);
-          }
-        );
+        // this.userService.currentUser.subscribe(
+        //   (userData: User) => {
+        //     this.currentUser = userData;
+        //     this.isUser = (this.currentUser.username === this.profile.username);
+        //   }
+        // );
       }
     );
 

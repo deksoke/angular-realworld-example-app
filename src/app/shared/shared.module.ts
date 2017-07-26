@@ -9,6 +9,9 @@ import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../../environments/environment';
 
 @NgModule({
   imports: [
@@ -16,7 +19,9 @@ import { ShowAuthedDirective } from './show-authed.directive';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule
+    RouterModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   declarations: [
     ArticleListComponent,
@@ -39,7 +44,9 @@ import { ShowAuthedDirective } from './show-authed.directive';
     HttpModule,
     ListErrorsComponent,
     RouterModule,
-    ShowAuthedDirective
+    ShowAuthedDirective,
+    AngularFireModule,
+    AngularFireAuthModule
   ]
 })
 export class SharedModule {}

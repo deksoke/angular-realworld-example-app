@@ -17,7 +17,6 @@ const authRouting: ModuleWithProviders = RouterModule.forChild([
 
 @NgModule({
   imports: [
-    authRouting,
     SharedModule
   ],
   declarations: [

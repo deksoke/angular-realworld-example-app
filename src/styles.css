@@ -2,3 +2,6 @@
 body .content-wrapper .content {
     font-family: 'Kanit', sans-serif;
 }
+body {
+    background: #d2d6de;
+}

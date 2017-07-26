@@ -46,19 +46,31 @@ export class Auth2Component implements OnInit {
     this.errors = new Errors();
 
     const credentials = this.authForm.value;
-    this.userService
-    .attemptAuth(this.authType, credentials)
-    .subscribe(
-      data => this.router.navigateByUrl('/'),
-      err => {
-        this.errors = err;
-        this.isSubmitting = false;
-      }
-    );
+    // this.userService
+    // .attemptAuth(this.authType, credentials)
+    // .subscribe(
+    //   data => this.router.navigateByUrl('/'),
+    //   err => {
+    //     this.errors = err;
+    //     this.isSubmitting = false;
+    //   }
+    // );
   }
 
   gotoMainPage(){
     this.router.navigate(['/dashboard']);
+  }
+
+
+  loginWithFacebook(){
+    this.userService.loginWithFacebook();
+  }
+  loginWithGooglePlus(){
+    this.userService.loginWithGooglePlus();
+  }
+
+  logout(){
+    this.userService.logout();
   }
 
 }

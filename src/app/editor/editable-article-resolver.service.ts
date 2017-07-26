@@ -20,7 +20,7 @@ export class EditableArticleResolver implements Resolve<Article> {
     return this.articlesService.get(route.params['slug'])
            .map(
              article => {
-               if (this.userService.getCurrentUser().username === article.author.username) {
+               if (this.userService.getCurrentUser().uid === article.author.username) {
                  return article;
                } else {
                  this.router.navigateByUrl('/');

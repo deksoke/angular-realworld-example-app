@@ -14,6 +14,7 @@ export class MailboxComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('mailbox init');
   }
 
 }

@@ -18,11 +18,11 @@ export class ArticleCommentComponent implements OnInit {
 
   ngOnInit() {
     // Load the current user's data
-    this.userService.currentUser.subscribe(
-      (userData: User) => {
-        this.canModify = (userData.username === this.comment.author.username);
-      }
-    );
+    // this.userService.currentUser.subscribe(
+    //   (userData: User) => {
+    //     this.canModify = (userData.username === this.comment.author.username);
+    //   }
+    // );
   }
 
   deleteClicked() {
