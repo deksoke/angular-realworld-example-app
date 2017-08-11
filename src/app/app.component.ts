@@ -50,6 +50,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   logout(){
     this.userFireBaseService.logOut();
+    this.router.navigate(['/auth/login']);
   }
 
   private isLogin(){
